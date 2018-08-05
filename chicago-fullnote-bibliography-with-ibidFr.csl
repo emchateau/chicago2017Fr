@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" class="note" version="1.0" demote-non-dropping-particle="display-and-sort" page-range-format="chicago">
   <info>
-    <title>Chicago Manual of Style 17th edition (note, with Ibid., French)</title>
-    <id>http://www.zotero.org/styles/chicago-note-bibliography-with-ibid-fr</id>
-    <link href="http://www.zotero.org/styles/chicago-note-bibliography-with-ibid-fr" rel="self"/>
+    <title>Chicago Manual of Style 17th edition (full note, with Ibid., French)</title>
+    <id>http://www.zotero.org/styles/chicago-fullnote-bibliography-with-ibid-fr</id>
+    <link href="http://www.zotero.org/styles/chicago-fullnote-bibliography-with-ibid-fr" rel="self"/>
     <link href="http://www.chicagomanualofstyle.org/tools_citationguide.html" rel="documentation"/>
     <author>
       <name>Julian Onions</name>
@@ -26,18 +26,31 @@
       <email>andrew.dunning@utoronto.ca</email>
     </contributor>
     <contributor>
-      <name>Sebastian Karcher</name>
-    </contributor>
-    <contributor>
       <name>Emmanuel Château-Dutier</name>
       <uri>https://histart.umontreal.ca/repertoire-departement/vue/chateau-dutier-emmanuel/</uri>
     </contributor>
     <category citation-format="note"/>
     <category field="generic-base"/>
-    <summary>Chicago format with short notes and bibliography, french translation</summary>
+    <summary>Chicago format with full notes and bibliography, french translation</summary>
     <updated>2018-08-04T20:00:52+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
+  <locale xml:lang="fr">
+    <terms>
+      <term name="editor" form="verb-short">éd.</term>
+      <term name="translator" form="verb-short">trad.</term>
+      <term name="translator" form="short">trad.</term>
+      <term name="editortranslator" form="verb-short">
+        <single>éd. et trad.</single>
+        <multiple>éd. et trad.</multiple>
+      </term>
+      <term name="editortranslator" form="verb">
+        <single>Édité et traduit par</single>
+        <multiple>Édité et traduit par</multiple>
+      </term>
+      <term name="translator" form="short">trad.</term>
+    </terms>
+  </locale>
   <locale xml:lang="en">
     <terms>
       <term name="editor" form="verb-short">ed.</term>
@@ -52,22 +65,6 @@
         <multiple>Edited and translated by</multiple>
       </term>
       <term name="translator" form="short">trans.</term>
-    </terms>
-  </locale>
-  <locale xml:lang="fr">
-    <terms>
-      <term name="editor" form="verb-short">éd.</term>
-      <term name="translator" form="verb-short">trad.</term>
-      <term name="translator" form="short">trad.</term>
-      <term name="editortranslator" form="verb-short">
-        <single>éd. et trad.</single>
-        <multiple>éd. et trad.</multiple>
-      </term>
-      <term name="editortranslator" form="verb">
-        <single>Édité et traduit par</single>
-        <multiple>Édités et traduits par</multiple>
-      </term>
-      <term name="translator" form="short">trad.</term>
     </terms>
   </locale>
   <macro name="editor-translator">
@@ -268,7 +265,7 @@
         <text variable="title"/>
       </else-if>
       <else-if variable="reviewed-author">
-        <text variable="title" font-style="italic" prefix="recension de "/>
+        <text variable="title" font-style="italic" prefix="review of "/>
       </else-if>
       <else>
         <text variable="title" text-case="title" quotes="true"/>
@@ -293,7 +290,7 @@
       </else-if>
       <else-if variable="reviewed-author">
         <group delimiter=", ">
-          <text variable="title" font-style="italic" prefix="Recension de "/>
+          <text variable="title" font-style="italic" prefix="Review of "/>
           <names variable="reviewed-author">
             <label form="verb-short" text-case="lowercase" suffix=" "/>
             <name and="text" delimiter=", "/>
@@ -844,7 +841,7 @@
       <if type="legal_case" variable="locator" match="all">
         <choose>
           <if locator="page">
-            <group delimiter=" :">
+            <group delimiter=" : ">
               <number variable="volume"/>
               <text variable="locator"/>
             </group>
@@ -886,7 +883,7 @@
             </group>
           </if>
           <else-if type="book graphic motion_picture report song" match="any">
-            <group delimiter=" : ">
+            <group delimiter=":">
               <number variable="volume" form="numeric"/>
               <text variable="locator"/>
             </group>
@@ -1336,7 +1333,7 @@
         <else-if position="ibid">
           <text term="ibid"/>
         </else-if>
-        <else>
+        <else-if position="subsequent">
           <group delimiter=", ">
             <text macro="contributors-short"/>
             <group delimiter=" ">
@@ -1353,6 +1350,40 @@
                 <text macro="point-locators-subsequent"/>
               </if>
             </choose>
+          </group>
+        </else-if>
+        <else>
+          <group delimiter=", ">
+            <group delimiter=": ">
+              <group delimiter=", ">
+                <group delimiter=" ">
+                  <group delimiter=", ">
+                    <group delimiter=" ">
+                      <group delimiter=", ">
+                        <group delimiter=", ">
+                          <text macro="contributors-note"/>
+                          <text macro="title-note"/>
+                          <text macro="issue-map-graphic"/>
+                        </group>
+                        <text macro="description-note"/>
+                        <text macro="secondary-contributors-note"/>
+                        <text macro="container-title-note"/>
+                        <text macro="container-contributors-note"/>
+                      </group>
+                      <text macro="locators-note-join-with-space"/>
+                    </group>
+                    <text macro="locators-note-join-with-comma"/>
+                    <text macro="collection-title"/>
+                    <text macro="issue-note-join-with-comma"/>
+                  </group>
+                  <text macro="issue-note-join-with-space"/>
+                </group>
+                <text macro="locators-newspaper"/>
+                <text macro="point-locators-join-with-comma"/>
+              </group>
+              <text macro="point-locators-join-with-colon"/>
+            </group>
+            <text macro="access-note"/>
           </group>
         </else>
       </choose>

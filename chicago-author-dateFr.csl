@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="display-and-sort" page-range-format="chicago">
   <info>
-    <title>Chicago Manual of Style 17th edition (author-date)</title>
-    <id>http://www.zotero.org/styles/chicago-author-date</id>
-    <link href="http://www.zotero.org/styles/chicago-author-date" rel="self"/>
+    <title>Chicago Manual of Style 17th edition (author-date, French)</title>
+    <id>http://www.zotero.org/styles/chicago-author-date-fr</id>
+    <link href="http://www.zotero.org/styles/chicago-author-date-fr" rel="self"/>
     <link href="http://www.chicagomanualofstyle.org/tools_citationguide.html" rel="documentation"/>
     <author>
       <name>Julian Onions</name>
@@ -21,20 +21,36 @@
       <name>Andrew Dunning</name>
       <email>andrew.dunning@utoronto.ca</email>
     </contributor>
+    <contributor>
+      <name>Emmanuel Château-Dutier</name>
+      <uri>https://histart.umontreal.ca/repertoire-departement/vue/chateau-dutier-emmanuel/</uri>
+    </contributor>
     <category citation-format="author-date"/>
     <category field="generic-base"/>
-    <summary>The author-date variant of the Chicago style</summary>
-    <updated>2017-12-07T04:15:37+00:00</updated>
+    <summary>The author-date variant of the Chicago style, french translation</summary>
+    <updated>2018-08-04T20:00:52+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale xml:lang="en">
     <terms>
       <term name="editor" form="verb-short">ed.</term>
-      <term name="container-author" form="verb">by</term>
       <term name="translator" form="verb-short">trans.</term>
+      <term name="translator" form="short">trans.</term>
       <term name="editortranslator" form="verb">
-        <single>edited and translated by</single>
-        <multiple>edited and translated by</multiple>
+        <single>Edited and translated by</single>
+        <multiple>Edited and translated by</multiple>
+      </term>
+      <term name="translator" form="short">trans.</term>
+    </terms>
+  </locale>
+  <locale xml:lang="fr">
+    <terms>
+      <term name="editor" form="verb-short">éd.</term>
+      <term name="container-author" form="verb">par</term>
+      <term name="translator" form="verb-short">trad.</term>
+      <term name="editortranslator" form="verb">
+        <single>édité et traduit par</single>
+        <multiple>édités et traduits par</multiple>
       </term>
       <term name="translator" form="short">trans.</term>
     </terms>
@@ -208,7 +224,7 @@
             <group delimiter=". ">
               <text variable="title" text-case="title" quotes="true"/>
               <group delimiter=", ">
-                <text variable="reviewed-title" text-case="title" font-style="italic" prefix="Review of "/>
+                <text variable="reviewed-title" text-case="title" font-style="italic" prefix="Recension de "/>
                 <names variable="reviewed-author">
                   <label form="verb-short" text-case="lowercase" suffix=" "/>
                   <name and="text" delimiter=", "/>
@@ -218,7 +234,7 @@
           </if>
           <else>
             <group delimiter=", ">
-              <text variable="title" text-case="title" font-style="italic" prefix="Review of "/>
+              <text variable="title" text-case="title" font-style="italic" prefix="Recension de "/>
               <names variable="reviewed-author">
                 <label form="verb-short" text-case="lowercase" suffix=" "/>
                 <name and="text" delimiter=", "/>
@@ -270,7 +286,7 @@
       <if type="article-journal">
         <choose>
           <if variable="volume">
-            <text variable="volume" prefix=" "/>
+            <text variable="volume" prefix=" "/>
             <group prefix=" (" suffix=")">
               <choose>
                 <if variable="issue">
@@ -335,7 +351,7 @@
         <choose>
           <if variable="page">
             <group prefix=", ">
-              <text variable="volume" suffix=":"/>
+              <text variable="volume" suffix=" : "/>
               <text variable="page"/>
             </group>
           </if>
@@ -360,7 +376,7 @@
       <else-if type="article-journal">
         <choose>
           <if variable="volume issue" match="any">
-            <text variable="page" prefix=":"/>
+            <text variable="page" prefix=" : "/>
           </if>
           <else>
             <text variable="page" prefix=", "/>
@@ -395,7 +411,7 @@
             </choose>
           </if>
           <else-if type="bill book graphic legal_case legislation motion_picture report song" match="any">
-            <number variable="volume" form="numeric" suffix=":"/>
+            <number variable="volume" form="numeric" suffix=" : "/>
           </else-if>
         </choose>
         <text variable="locator"/>
@@ -428,7 +444,7 @@
     </choose>
   </macro>
   <macro name="publisher">
-    <group delimiter=": ">
+    <group delimiter=" : ">
       <text variable="publisher-place"/>
       <text variable="publisher"/>
     </group>
@@ -594,7 +610,7 @@
     </choose>
   </macro>
   <citation et-al-min="4" et-al-use-first="1" disambiguate-add-year-suffix="true" disambiguate-add-names="true" disambiguate-add-givenname="true" givenname-disambiguation-rule="primary-name" collapse="year">
-    <layout prefix="(" suffix=")" delimiter="; ">
+    <layout prefix="(" suffix=")" delimiter=" ; ">
       <group delimiter=", ">
         <choose>
           <if variable="issued accessed" match="any">

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" class="note" version="1.0" demote-non-dropping-particle="display-and-sort" page-range-format="chicago">
   <info>
-    <title>Chicago Manual of Style 17th edition (full note, with Ibid.)</title>
-    <id>http://www.zotero.org/styles/chicago-fullnote-bibliography-with-ibid</id>
-    <link href="http://www.zotero.org/styles/chicago-fullnote-bibliography-with-ibid" rel="self"/>
+    <title>Chicago Manual of Style 17th edition (note, annotated bibliography, French)</title>
+    <id>http://www.zotero.org/styles/chicago-annotated-bibliography-fr</id>
+    <link href="http://www.zotero.org/styles/chicago-annotated-bibliography-fr" rel="self"/>
     <link href="http://www.chicagomanualofstyle.org/tools_citationguide.html" rel="documentation"/>
     <author>
       <name>Julian Onions</name>
@@ -25,10 +25,17 @@
       <name>Andrew Dunning</name>
       <email>andrew.dunning@utoronto.ca</email>
     </contributor>
+    <contributor>
+      <name>Sebastian Karcher</name>
+    </contributor>
+    <contributor>
+      <name>Emmanuel Château-Dutier</name>
+      <uri>https://histart.umontreal.ca/repertoire-departement/vue/chateau-dutier-emmanuel/</uri>
+    </contributor>
     <category citation-format="note"/>
     <category field="generic-base"/>
-    <summary>Chicago format with full notes and bibliography</summary>
-    <updated>2017-12-07T04:15:37+00:00</updated>
+    <summary>Chicago format with short notes and annotated bibliography, french translation</summary>
+    <updated>2018-08-04T20:00:52+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale xml:lang="en">
@@ -45,6 +52,22 @@
         <multiple>Edited and translated by</multiple>
       </term>
       <term name="translator" form="short">trans.</term>
+    </terms>
+  </locale>
+  <locale xml:lang="fr">
+    <terms>
+      <term name="editor" form="verb-short">éd.</term>
+      <term name="translator" form="verb-short">trad.</term>
+      <term name="translator" form="short">trad.</term>
+      <term name="editortranslator" form="verb-short">
+        <single>éd. et trad.</single>
+        <multiple>éd. et trad.</multiple>
+      </term>
+      <term name="editortranslator" form="verb">
+        <single>Édité et traduit par</single>
+        <multiple>Édités et traduits par</multiple>
+      </term>
+      <term name="translator" form="short">trad.</term>
     </terms>
   </locale>
   <macro name="editor-translator">
@@ -562,7 +585,7 @@
               <text variable="page"/>
             </if>
             <else>
-              <text variable="number" prefix="No. "/>
+              <text variable="number" prefix="n° "/>
             </else>
           </choose>
         </group>
@@ -572,7 +595,7 @@
           <choose>
             <if variable="number">
               <!--There's a public law number-->
-              <text variable="number" prefix="Pub. L. No. "/>
+              <text variable="number" prefix="Loi n° "/>
               <group delimiter=" ">
                 <!--change to label variable="section" as that becomes available -->
                 <text term="section" form="symbol"/>
@@ -713,7 +736,7 @@
   </macro>
   <macro name="originally-published">
     <group delimiter=", ">
-      <group delimiter=": ">
+      <group delimiter=" : ">
         <text variable="original-publisher-place"/>
         <text variable="original-publisher"/>
       </group>
@@ -750,7 +773,7 @@
         <text variable="event-place"/>
       </else-if>
       <else>
-        <group delimiter=": ">
+        <group delimiter=" : ">
           <text variable="publisher-place"/>
           <text variable="publisher"/>
         </group>
@@ -821,7 +844,7 @@
       <if type="legal_case" variable="locator" match="all">
         <choose>
           <if locator="page">
-            <group delimiter=":">
+            <group delimiter=" :">
               <number variable="volume"/>
               <text variable="locator"/>
             </group>
@@ -863,7 +886,7 @@
             </group>
           </if>
           <else-if type="book graphic motion_picture report song" match="any">
-            <group delimiter=":">
+            <group delimiter=" :">
               <number variable="volume" form="numeric"/>
               <text variable="locator"/>
             </group>
@@ -940,7 +963,7 @@
           <else>
             <choose>
               <if variable="page">
-                <number variable="volume" suffix=":"/>
+                <number variable="volume" suffix=" : "/>
                 <text variable="page"/>
               </if>
             </choose>
@@ -1074,7 +1097,7 @@
       <else-if variable="publisher-place event-place publisher" match="any">
         <group prefix="(" suffix=")" delimiter=", ">
           <text macro="event-note"/>
-          <group delimiter="; ">
+          <group delimiter=" ; ">
             <text macro="originally-published"/>
             <group delimiter=", ">
               <text macro="reprint-note"/>
@@ -1302,18 +1325,30 @@
     </choose>
   </macro>
   <citation et-al-min="4" et-al-use-first="1" disambiguate-add-names="true">
-    <layout suffix="." delimiter="; ">
+    <layout suffix="." delimiter=" ; ">
       <choose>
-        <if position="ibid-with-locator">
+        <if position="ibid ibid-with-locator" match="any">
           <group delimiter=", ">
-            <text term="ibid"/>
-            <text macro="point-locators-subsequent"/>
+            <text macro="contributors-short"/>
+            <group delimiter=" ">
+              <group delimiter=", ">
+                <choose>
+                  <if variable="author editor translator" match="none">
+                    <text macro="title-short"/>
+                  </if>
+                </choose>
+                <text macro="case-locator-subsequent"/>
+              </group>
+              <text macro="case-pinpoint-subsequent"/>
+            </group>
+            <choose>
+              <if match="none" type="legal_case">
+                <text macro="point-locators-subsequent"/>
+              </if>
+            </choose>
           </group>
         </if>
-        <else-if position="ibid">
-          <text term="ibid"/>
-        </else-if>
-        <else-if position="subsequent">
+        <else>
           <group delimiter=", ">
             <text macro="contributors-short"/>
             <group delimiter=" ">
@@ -1331,40 +1366,6 @@
               </if>
             </choose>
           </group>
-        </else-if>
-        <else>
-          <group delimiter=", ">
-            <group delimiter=": ">
-              <group delimiter=", ">
-                <group delimiter=" ">
-                  <group delimiter=", ">
-                    <group delimiter=" ">
-                      <group delimiter=", ">
-                        <group delimiter=", ">
-                          <text macro="contributors-note"/>
-                          <text macro="title-note"/>
-                          <text macro="issue-map-graphic"/>
-                        </group>
-                        <text macro="description-note"/>
-                        <text macro="secondary-contributors-note"/>
-                        <text macro="container-title-note"/>
-                        <text macro="container-contributors-note"/>
-                      </group>
-                      <text macro="locators-note-join-with-space"/>
-                    </group>
-                    <text macro="locators-note-join-with-comma"/>
-                    <text macro="collection-title"/>
-                    <text macro="issue-note-join-with-comma"/>
-                  </group>
-                  <text macro="issue-note-join-with-space"/>
-                </group>
-                <text macro="locators-newspaper"/>
-                <text macro="point-locators-join-with-comma"/>
-              </group>
-              <text macro="point-locators-join-with-colon"/>
-            </group>
-            <text macro="access-note"/>
-          </group>
         </else>
       </choose>
     </layout>
@@ -1378,7 +1379,7 @@
     </sort>
     <layout suffix=".">
       <group delimiter=". ">
-        <group delimiter=": ">
+        <group delimiter=" : ">
           <group delimiter=", ">
             <group delimiter=" ">
               <group delimiter=". ">
@@ -1416,6 +1417,7 @@
         </group>
         <text macro="access"/>
       </group>
+      <text variable="note" display="block"/>
     </layout>
   </bibliography>
 </style>

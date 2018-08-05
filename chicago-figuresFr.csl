@@ -3,7 +3,7 @@
   <!-- This style was edited with the Visual CSL Editor (http://editor.citationstyles.org/visualEditor/) -->
   <info>
     <title>Chicago Manual of Style 16th edition (figures and illustrations, French)</title>
-    <title-short>chicago-figures</title-short>
+    <title-short>chicago-figures-fr</title-short>
     <id>http://www.zotero.org/styles/chicago-figures-fr</id>
     <link href="http://www.zotero.org/styles/chicago-figures-fr" rel="self"/>
     <link href="https://github.com/citation-style-language/styles/pull/442" rel="documentation"/>
@@ -16,7 +16,7 @@
     </contributor>
     <category citation-format="numeric"/>
     <category field="humanities"/>
-    <summary>Follows the Chicago Manual for Figure lists. Natural Name order, commas separate elements, currently working with artwork item types, and to facilitate citing images that come from books, book part. French translation</summary>
+    <summary>Follows the Chicago Manual for Figure lists. Natural Name order, commas separate elements, currently working with artwork item types, and to facilitate citing images that come from books, book part. French translation.</summary>
     <updated>2018-08-04T20:00:52+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
