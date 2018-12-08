@@ -582,7 +582,7 @@
               <text variable="page"/>
             </if>
             <else>
-              <text variable="number" prefix="n° "/>
+              <text variable="number" prefix="n°&#160;"/>
             </else>
           </choose>
         </group>
@@ -592,7 +592,7 @@
           <choose>
             <if variable="number">
               <!--There's a public law number-->
-              <text variable="number" prefix="Loi n° "/>
+              <text variable="number" prefix="Loi n°&#160;"/>
               <group delimiter=" ">
                 <!--change to label variable="section" as that becomes available -->
                 <text term="section" form="symbol"/>
@@ -733,7 +733,7 @@
   </macro>
   <macro name="originally-published">
     <group delimiter=", ">
-      <group delimiter=" : ">
+      <group delimiter="&#160;: ">
         <text variable="original-publisher-place"/>
         <text variable="original-publisher"/>
       </group>
@@ -770,7 +770,7 @@
         <text variable="event-place"/>
       </else-if>
       <else>
-        <group delimiter=" : ">
+        <group delimiter="&#160;: ">
           <text variable="publisher-place"/>
           <text variable="publisher"/>
         </group>
@@ -841,7 +841,7 @@
       <if type="legal_case" variable="locator" match="all">
         <choose>
           <if locator="page">
-            <group delimiter=" : ">
+            <group delimiter="&#160;: ">
               <number variable="volume"/>
               <text variable="locator"/>
             </group>
@@ -960,7 +960,7 @@
           <else>
             <choose>
               <if variable="page">
-                <number variable="volume" suffix=" : "/>
+                <number variable="volume" suffix="&#160;: "/>
                 <text variable="page"/>
               </if>
             </choose>
@@ -1094,7 +1094,7 @@
       <else-if variable="publisher-place event-place publisher" match="any">
         <group prefix="(" suffix=")" delimiter=", ">
           <text macro="event-note"/>
-          <group delimiter=" ; ">
+          <group delimiter="&#160;; ">
             <text macro="originally-published"/>
             <group delimiter=", ">
               <text macro="reprint-note"/>
@@ -1322,7 +1322,7 @@
     </choose>
   </macro>
   <citation et-al-min="4" et-al-use-first="1" disambiguate-add-names="true">
-    <layout suffix="." delimiter=" ; ">
+    <layout suffix="." delimiter="&#160;; ">
       <choose>
         <if position="ibid-with-locator">
           <group delimiter=", ">
@@ -1398,7 +1398,7 @@
     </sort>
     <layout suffix=".">
       <group delimiter=". ">
-        <group delimiter=" : ">
+        <group delimiter="&#160;: ">
           <group delimiter=", ">
             <group delimiter=" ">
               <group delimiter=". ">

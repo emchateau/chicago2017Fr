@@ -286,7 +286,7 @@
       <if type="article-journal">
         <choose>
           <if variable="volume">
-            <text variable="volume" prefix=" "/>
+            <text variable="volume" prefix="&#160;"/>
             <group prefix=" (" suffix=")">
               <choose>
                 <if variable="issue">
@@ -351,7 +351,7 @@
         <choose>
           <if variable="page">
             <group prefix=", ">
-              <text variable="volume" suffix=" : "/>
+              <text variable="volume" suffix="&#160;: "/>
               <text variable="page"/>
             </group>
           </if>
@@ -376,7 +376,7 @@
       <else-if type="article-journal">
         <choose>
           <if variable="volume issue" match="any">
-            <text variable="page" prefix=" : "/>
+            <text variable="page" prefix="&#160;: "/>
           </if>
           <else>
             <text variable="page" prefix=", "/>
@@ -411,7 +411,7 @@
             </choose>
           </if>
           <else-if type="bill book graphic legal_case legislation motion_picture report song" match="any">
-            <number variable="volume" form="numeric" suffix=" : "/>
+            <number variable="volume" form="numeric" suffix="&#160;: "/>
           </else-if>
         </choose>
         <text variable="locator"/>
@@ -444,7 +444,7 @@
     </choose>
   </macro>
   <macro name="publisher">
-    <group delimiter=" : ">
+    <group delimiter="&#160;: ">
       <text variable="publisher-place"/>
       <text variable="publisher"/>
     </group>
@@ -610,7 +610,7 @@
     </choose>
   </macro>
   <citation et-al-min="4" et-al-use-first="1" disambiguate-add-year-suffix="true" disambiguate-add-names="true" disambiguate-add-givenname="true" givenname-disambiguation-rule="primary-name" collapse="year">
-    <layout prefix="(" suffix=")" delimiter=" ; ">
+    <layout prefix="(" suffix=")" delimiter="&#160;; ">
       <group delimiter=", ">
         <choose>
           <if variable="issued accessed" match="any">
